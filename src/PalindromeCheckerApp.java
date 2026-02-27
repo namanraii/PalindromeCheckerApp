@@ -1,16 +1,31 @@
-// Class – Acts as a container for the Palindrome Checker application logic
 public class PalindromeCheckerApp {
 
-    // Main Method – Entry point of the Java application
-    public static void main(String[] args) {
-        // Console Output – Display welcome message and app details
-        System.out.println("=====================================");
-        System.out.println(" Welcome to PalindromeChecker App ");
-        System.out.println(" Version: 1.0.0 ");
-        System.out.println("=====================================");
+    private static final String APP_NAME = "Palindrome Checker App";
+    private static final String VERSION = "Version 1.0";
 
-        // Application Flow Control – Continue to next use case or exit
-        // For now, just a placeholder message
-        System.out.println("Ready to validate palindromes...");
+    public static void main(String[] args) {
+
+        // UC1: Welcome message
+        System.out.println("=====================================");
+        System.out.println("Welcome to " + APP_NAME);
+        System.out.println(VERSION);
+        System.out.println("=====================================");
+        System.out.println("Application is ready to check palindromes...");
+
+        // UC3: Palindrome check using string reverse
+        String input = "level"; // Example input
+        String reversed = "";
+
+        // Reverse string using loop
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed += input.charAt(i);
+        }
+
+        // Compare original and reversed
+        if (input.equals(reversed)) {
+            System.out.println(input + " is a palindrome.");
+        } else {
+            System.out.println(input + " is NOT a palindrome.");
+        }
     }
 }
