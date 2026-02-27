@@ -12,24 +12,26 @@ public class PalindromeCheckerApp {
         System.out.println("=====================================");
         System.out.println("Application is ready to check palindromes...");
 
-        // UC5: Stack-based palindrome check
-        String inputUC5 = "madam";
+        // UC6: Queue + Stack based palindrome check
+        String inputUC6 = "level";
+        java.util.Queue<Character> queue = new java.util.LinkedList<>();
         java.util.Stack<Character> stack = new java.util.Stack<>();
 
-// Push characters into stack
-        for (char c : inputUC5.toCharArray()) {
-            stack.push(c);
+// Enqueue and push characters
+        for (char c : inputUC6.toCharArray()) {
+            queue.add(c);   // FIFO
+            stack.push(c);  // LIFO
         }
 
-// Pop and compare
+// Compare dequeue vs pop
         boolean isPalindrome = true;
-        for (char c : inputUC5.toCharArray()) {
-            if (c != stack.pop()) {
+        while (!queue.isEmpty()) {
+            if (!queue.remove().equals(stack.pop())) {
                 isPalindrome = false;
                 break;
             }
         }
 
-        System.out.println(inputUC5 + (isPalindrome ? " is a palindrome." : " is NOT a palindrome."));
+        System.out.println(inputUC6 + (isPalindrome ? " is a palindrome." : " is NOT a palindrome."));
     }
 }
