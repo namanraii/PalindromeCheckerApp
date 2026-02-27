@@ -12,22 +12,24 @@ public class PalindromeCheckerApp {
         System.out.println("=====================================");
         System.out.println("Application is ready to check palindromes...");
 
-        // UC4: Character array based palindrome check
-        String inputUC4 = "radar";
-        char[] chars = inputUC4.toCharArray();
-        boolean isPalindrome = true;
-        int start = 0;
-        int end = chars.length - 1;
+        // UC5: Stack-based palindrome check
+        String inputUC5 = "madam";
+        java.util.Stack<Character> stack = new java.util.Stack<>();
 
-        while (start < end) {
-            if (chars[start] != chars[end]) {
+// Push characters into stack
+        for (char c : inputUC5.toCharArray()) {
+            stack.push(c);
+        }
+
+// Pop and compare
+        boolean isPalindrome = true;
+        for (char c : inputUC5.toCharArray()) {
+            if (c != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
-            start++;
-            end--;
         }
 
-        System.out.println(inputUC4 + (isPalindrome ? " is a palindrome." : " is NOT a palindrome."));
+        System.out.println(inputUC5 + (isPalindrome ? " is a palindrome." : " is NOT a palindrome."));
     }
 }
