@@ -12,20 +12,22 @@ public class PalindromeCheckerApp {
         System.out.println("=====================================");
         System.out.println("Application is ready to check palindromes...");
 
-        // UC3: Palindrome check using string reverse
-        String input = "level"; // Example input
-        String reversed = "";
+        // UC4: Character array based palindrome check
+        String inputUC4 = "radar";
+        char[] chars = inputUC4.toCharArray();
+        boolean isPalindrome = true;
+        int start = 0;
+        int end = chars.length - 1;
 
-        // Reverse string using loop
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed += input.charAt(i);
+        while (start < end) {
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
         }
 
-        // Compare original and reversed
-        if (input.equals(reversed)) {
-            System.out.println(input + " is a palindrome.");
-        } else {
-            System.out.println(input + " is NOT a palindrome.");
-        }
+        System.out.println(inputUC4 + (isPalindrome ? " is a palindrome." : " is NOT a palindrome."));
     }
 }
